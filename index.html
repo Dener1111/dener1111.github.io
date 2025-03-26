@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Game Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="avatar-container">
+            <img src="assets/avatar.jpg" alt="Developer Avatar" class="avatar">
+        </div>
+        <div class="header-text">
+            <h1>Danylo Krasovskyi</h1>
+            <p>Unity Game Developer <span class="experience-text">with 7+ years of exp</span></p>
+            <p>Programming | Game Design | Level Design | Sound & Music</p>
+        </div>
+        <div class="header-links">
+            <a href="assets/DK_CV.pdf" class="cv-download" download="DK_CV.pdf" target="_blank">Checkout CV</a>
+            <div class="social-links">
+                <a href="https://github.com/Dener1111" class="social-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/daniel-krasovsky/" class="social-link" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-section" id="pc-games">
+        <h2>Personal Games</h2>
+        <div class="project-container">
+            <div class="project" id="spacewhip">
+                <div class="screenshot-carousel" onclick="window.open('https://gruelscum.itch.io/spacewhip', '_blank')">
+                    <h3 class="game-title">SPACE WHIP</h3>
+                    <div class="game-description">
+                        <p>Immersive movement shooter in a megastructure with a grapling-hook.</p>
+                        <p>Whip around and pull enemies and objects.</p>
+                        <p>Swap between many unique droped weapons</p>
+                        <p>Everything but art was made by me.</p>
+                        <div class="download-button">Download</div>
+                    </div>
+                    <!-- Screenshots will be added here via JavaScript -->
+                </div>
+            </div>
+            
+            <div class="project" id="honor-plus-plus">
+                <div class="screenshot-carousel" onclick="window.open('https://gruelscum.itch.io/honorplusplus', '_blank')">
+                    <h3 class="game-title">HONOR++</h3>
+                    <div class="game-description">
+                        <p>High mobility, movement based, air-control PvP samurai showdown.</p>
+                        <p>Slide and dash across the arena, building momentum and outmaneuvering your rivals.</p>
+                        <p>Set up private or public rooms, tweak the maximum HP. Supporting up to 16 players. </p>
+                        <p>Honor++ was whipped up in a couple of months by me and an artist.</p>
+                        <div class="download-button">Download</div>
+                    </div>
+                </div>
+            </div>
+                <!-- Screenshots will be added here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section" id="mobile-games">
+        <h2>Mobile Projects</h2>
+        <div class="mobile-gallery">
+            <div class="mobile-screenshots">
+                <div class="mobile-screenshot" onclick="window.open('https://www.taptap.io/app/33728801', '_blank')">
+                    <img src="assets/mobile/idlestreamer.png" alt="Mobile Game 1">
+                    <div class="mobile-info">
+                        <h4>Idle Streamer</h4>
+                        <p>Hybrid-Casual rythm game with different mini games and city building meta.</p>
+                    </div>
+                </div>
+                <div class="mobile-screenshot" onclick="window.open('https://cafebazaar.ir/app/com.wanna24play.loopfighter?l=en', '_blank')">
+                    <img src="assets/mobile/loopfighter.png" alt="Mobile Game 2">
+                    <div class="mobile-info">
+                        <h4>Loop Fighter 3D</h4>
+                        <p>Idler with building mechanics, spellcraft and random loot generation.</p>
+                    </div>
+                </div>
+                <div class="mobile-screenshot" onclick="window.open('https://www.taptap.io/app/33690196', '_blank')">
+                    <img src="assets/mobile/trackrace.png" alt="Mobile Game 3">
+                    <div class="mobile-info">
+                        <h4>Track Racing</h4>
+                        <p>Hyper-Casual racing game with unlockable tracks, decor and cars.</p>
+                    </div>
+                </div>
+                <div class="mobile-screenshot" onclick="window.open('https://appadvice.com/app/happy-island-zoo-farming-game/1575337396', '_blank')">
+                    <img src="assets/mobile/zooisland.png" alt="Mobile Game 4">
+                    <div class="mobile-info">
+                        <h4>Happy Island Zoo</h4>
+                        <p>Hybrid-Casual farming/zoo game. Unlock new animals, expand island.</p>
+                    </div>
+                </div>
+                <div class="mobile-screenshot more-projects">
+                    <div class="mobile-info" style="transform: none; background-color: #1e1e1e; height: 100%; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                        <h4>30+ More</h4>
+                        <p>Contact me for info</p>
+                        <p>about other games and projects I've worked on</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section" id="unity-repos">
+        <h2>Unity Repos</h2>
+        <div class="repos-container">
+            <div class="repo">
+                <h3>DKExtension</h3>
+                <p>Collection of helpful extension.</p>
+                <p>For faster development and cleaner code.</p>
+                <a href="https://github.com/Dener1111/com.dk.extensions" class="repo-link" target="_blank">View on GitHub</a>
+            </div>
+            <div class="repo">
+                <h3>DKEvents</h3>
+                <p>SciptableObject based events.</p>
+                <p>Leveraging lightning fast Relays.</p>
+                <a href="https://github.com/Dener1111/DKEvents" class="repo-link" target="_blank">View on GitHub</a>
+            </div>
+            <div class="repo">
+                <h3>FMOD Extension</h3>
+                <p>Extensions for UNITY/FMOD plugin.</p>
+                <p>Nice and clean method chain workflow.</p>
+                <a href="#" class="repo-link" target="_blank">View on GitHub</a>
+            </div>
+            
+            <!-- Add more repos as needed -->
+        </div>
+    </section>
+
+    <footer>
+        <a href="assets/DK_CV.pdf" class="cv-download" download="DK_CV.pdf" target="_blank">Download CV</a>
+        <div class="social-links">
+            <a href="https://github.com/Dener1111" class="social-link" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/daniel-krasovsky/" class="social-link" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+</body>
+</html>
