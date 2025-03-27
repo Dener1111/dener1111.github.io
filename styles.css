@@ -44,12 +44,12 @@ body::after {
 
 a {
     text-decoration: none;
-    color: #bb86fc;
+    color: #ff8585;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #d7b8ff;
+    color: #ffa3a3;
 }
 
 /* Header styles */
@@ -58,8 +58,6 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
-    background-color: #1e1e1e;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .header-links {
@@ -86,13 +84,13 @@ footer {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #bb86fc;
+    border: 3px solid #ff8585;
 }
 
 .header-text h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: #bb86fc;
+    color: #ff8585;
 }
 
 .header-text p {
@@ -109,8 +107,8 @@ footer {
 .project-section h2 {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: #bb86fc;
-    border-bottom: 2px solid #bb86fc;
+    color: #ff8585;
+    border-bottom: 2px solid #ff8585;
     padding-bottom: 0.5rem;
     text-align: center; /* Center align the headings */
 }
@@ -118,7 +116,7 @@ footer {
 .mobile-gallery h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #bb86fc;
+    color: #ff8585;
     text-align: center; /* Center align mobile gallery heading */
 }
 
@@ -265,7 +263,7 @@ footer {
 .mobile-gallery h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #bb86fc;
+    color: #ff8585;
 }
 
 .mobile-screenshots {
@@ -349,7 +347,7 @@ footer {
 .repo h3 {
     font-size: 1.5rem;
     margin-bottom: 0.8rem;
-    color: #bb86fc;
+    color: #ff8585;
 }
 
 .repo p {
@@ -360,7 +358,7 @@ footer {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #bb86fc;
+    background-color: #ff8585;
     color: #ffffff;
     border-radius: 0;
     transition: background-color 0.3s;
@@ -370,7 +368,7 @@ footer {
     display: inline-block;
     margin-bottom: 1.5rem;
     padding: 0.8rem 1.5rem;
-    background-color: #bb86fc;
+    background-color: #ff8585;
     color: #ffffff;
     border-radius: 0;
     font-size: 1.2rem;
@@ -379,13 +377,13 @@ footer {
 }
 
 .repo-link:hover {
-    background-color: #d7b8ff;
+    background-color: #ffa3a3;
     text-decoration: none;
     color: #ffffff;
 }
 
 .cv-download:hover {
-    background-color: #d7b8ff;
+    background-color: #ffa3a3;
     text-decoration: none;
     color: #ffffff;
 }
@@ -399,7 +397,7 @@ footer {
 }
 
 .cv-download:hover {
-    background-color: #d7b8ff;
+    background-color: #ffa3a3;
     text-decoration: none;
 }
 
@@ -408,7 +406,7 @@ footer {
 }
 
 .social-link {
-    color: #bb86fc;
+    color: #ff8585;
     margin: 0 0.5rem;
     font-size: 1.1rem;
 }
@@ -445,18 +443,18 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #bb86fc;
+    background: #ff8585;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #d7b8ff;
+    background: #ffa3a3;
 }
 
 .more-projects {
     background-color: #1e1e1e;
     cursor: pointer;
-    border: 2px solid #bb86fc;
+    border: 2px solid #ff8585;
 }
 
 .more-projects:hover {
@@ -465,7 +463,7 @@ footer {
 }
 
 .more-projects h4 {
-    color: #bb86fc;
+    color: #ff8585;
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
