@@ -73,16 +73,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             scrollPosition += scrollSpeed;
             
-            // If we've scrolled past the first set, reset to the beginning of the second set
-            if (scrollPosition >= singleSetWidth) {
+            // More precise reset condition
+            if (scrollPosition >= singleSetWidth - 1) {  // Added small threshold
                 scrollPosition = 0;
+                wrapper.style.transition = 'none';  // Disable transition for reset
+                wrapper.style.transform = `translateX(0)`;
+                // Force reflow
+                wrapper.offsetHeight;
+                wrapper.style.transition = 'transform 0.03s linear';  // Re-enable transition
+                return;
             }
             
             wrapper.style.transform = `translateX(-${scrollPosition}px)`;
         }
         
-        // Start auto-scroll, pause on hover
-        scrollTimer = setInterval(autoScroll, scrollInterval);
+        // Adjust scroll interval for smoother movement
+        scrollTimer = setInterval(autoScroll, 20);  // Changed from 30ms to 20ms
         
         container.addEventListener('mouseenter', () => {
             clearInterval(scrollTimer);
