@@ -142,32 +142,46 @@ footer {
     position: relative; /* Ensure relative positioning for absolute children */
 }
 
+/* Add at the top of the file, after Base styles */
+@font-face {
+    font-family: 'SpaceWhip';
+    src: url('assets/fonts/SpaceWhipFont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'DigitalDisco';
+    src: url('assets/fonts/DigitalDisco.ttf') format('truetype');
+}
+
 .game-title {
     position: absolute;
     top: 0;
     left: 0;
     color: #ffffff;
     background-color: transparent;
-    padding-top: 1rem;
+    padding-top: 2rem;  /* Standardized padding */
     padding-left: 3.6rem;
-    z-index: 21; /* Increased z-index to be above gradient */
-    font-size: 6rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
+    z-index: 21;
+    font-size: 4.5rem;  /* Adjusted size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#spacewhip .game-title {
+    font-family: 'SpaceWhip', sans-serif;
+    letter-spacing: 0.2em;
+    padding-top: .6rem;  /* Ensure consistent padding */
+}
+
+#honor-plus-plus .game-title {
+    font-family: 'DigitalDisco', sans-serif;
+    letter-spacing: 0.15em;
+    padding-top: 1rem;  /* Ensure consistent padding */
 }
 
 .game-description {
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #ffffff;
-    padding: 1rem;
-    z-index: 20;
-    display: none;
-    line-height: 1.5;
-    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-    width: 35%;
-    height: 100%;
-    padding-top: 8rem;
+}
+
+.game-description p {
 }
 
 .screenshot-carousel {
@@ -178,42 +192,62 @@ footer {
     position: relative;
     z-index: 10;
     cursor: pointer;
-    height: 500px; /* Adjusted height */
+    height: 300px;  /* Increased height */
 }
 
-/* Remove duplicate .screenshot class and keep this one */
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.03s linear;
+    will-change: transform;
+    height: 100%;
+    align-items: center;  /* Center images vertically */
+}
+
 .screenshot {
     display: block;
     margin-right: 0;
-    height: 500px;
+    height: 300px;  /* Match carousel height */
     width: auto;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
     flex-shrink: 0;
+    object-fit: contain;
 }
+
+/* Remove the duplicate .screenshot class later in the file */
+
+.game-title {
+    font-size: 3.5rem;  /* Adjusted for new size */
+    padding-top: 0.5rem;
+}
+
 
 .game-description {
     position: absolute;
     top: 0;
     left: 0;
     color: #ffffff;
-    padding: 3rem;
+    padding: 1.6rem;
     z-index: 20;
     display: none;
-    line-height: 1.5;
-    background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
-    width: 35%;
-    height: 100%; /* Cover full height */
-    padding-top: 10rem; /* Add padding to account for the title */
+    line-height: 2;
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
+    width: 45%;
+    height: 100%;
+    padding-top: 4rem;
+    white-space: pre-line;  /* This will preserve line breaks as in HTML */
 }
 
 .game-description p {
-    margin-bottom: 0.8rem;
-    font-size: 1.2rem;
-    padding-left: 1rem;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    padding-left: 2rem;
+    max-width: 400px;
+    display: inline;  /* Make paragraphs flow inline */
 }
 
+/* Remove all duplicate .game-description declarations in the file */
 .download-button {
     display: inline-block;
     margin-top: 1rem;
