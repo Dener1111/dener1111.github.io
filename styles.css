@@ -10,6 +10,36 @@ body {
     line-height: 1.6;
     color: #e0e0e0;
     background-color: #121212;
+    background-image: url('assets/BG.png');
+    background-repeat: repeat;
+    background-size: 60%;
+    background-attachment: scroll;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Add dark overlay with cursor light effect */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle 200px at var(--cursor-x, 50%) var(--cursor-y, 50%),
+        transparent,
+        rgba(0, 0, 0, 0.85)
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure content stays above the dark overlay */
+.main-header, .project-section, .mobile-gallery, .repos-container {
+    position: relative;
+    z-index: 2;
 }
 
 a {
