@@ -1,4 +1,6 @@
 /* Base styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,8 @@
     cursor: url('assets/pointer.png') 0 0, auto;
 }
 
-/* Keep clickable elements with pointer cursor */
-a, button, .screenshot-carousel, .mobile-screenshot, .repo {
-    cursor: url('assets/pointer.png') 0 0, pointer;
-}
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #e0e0e0;
     background-color: #121212;
@@ -46,6 +43,7 @@ body::after {
 .main-header, .project-section, .mobile-gallery, .repos-container {
     position: relative;
     z-index: 2;
+    margin-bottom: -4rem;
 }
 
 a {
@@ -91,6 +89,12 @@ footer {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #ff8585;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.avatar.mirrored {
+    transform: scaleX(-1);
 }
 
 .header-text h1 {
@@ -107,7 +111,7 @@ footer {
 /* Section styles */
 .project-section {
     padding: 3rem 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .project-section h2 {
@@ -134,7 +138,7 @@ footer {
 .project {
     display: flex;
     flex-direction: column;
-    background-color: #1e1e1e;
+    background-color: #151515;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
@@ -285,19 +289,25 @@ footer {
     border-radius: 0;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    transition: all 0.3s;
     height: 350px;
+    border: 2px solid #000000;
+    border-bottom-width: 8px;
+    background-color: #000000;
+    box-sizing: border-box;
 }
 
 .mobile-screenshot img {
     width: 100%;
-    height: 100%; /* Changed from fixed height to 100% */
-    object-fit: contain; /* Changed from cover to contain */
-    background-color: #1e1e1e; /* Added background color for empty spaces */
+    height: 100%;
+    object-fit: contain;
+    background-color: #000000;
+    margin: 0px;
 }
 
 .mobile-screenshot:hover {
     transform: translateY(-10px);
+    border-color: #ff8585;
 }
 
 .mobile-info {
@@ -337,12 +347,12 @@ footer {
     border-radius: 0;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     transition: all 0.3s, border-color 0s;  /* Border color changes 2x faster */
-    width: 350px;
+    width: 390px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
     border-bottom-width: 8px;
     position: relative;
     overflow: hidden;
@@ -424,7 +434,7 @@ footer {
 
 /* Footer styles */
 footer {
-    background-color: #1e1e1e;
+    background-color: #151515;
     color: #e0e0e0;
     padding: 2rem;
     text-align: center;
@@ -473,7 +483,7 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-    background: #1e1e1e;
+    background: #151515;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -486,14 +496,16 @@ footer {
 }
 
 .more-projects {
-    background-color: #1e1e1e;
+    background-color: #151515;
     cursor: pointer;
-    border: 2px solid #ff8585;
+    border: 2px solid #000000;
+    border-bottom-width: 8px;
 }
 
 .more-projects:hover {
     transform: translateY(-10px);
     background-color: #2e2e2e;
+    border-color: #ff8585;
 }
 
 .more-projects h4 {

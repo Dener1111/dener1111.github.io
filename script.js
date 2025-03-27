@@ -116,6 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.querySelector('.avatar').addEventListener('click', function() {
+    this.classList.toggle('mirrored');
+});
 document.addEventListener('mousemove', (e) => {
     document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
     document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
