@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: url('assets/pointer.png') 0 0, auto;
+}
+
+/* Keep clickable elements with pointer cursor */
+a, button, .screenshot-carousel, .mobile-screenshot, .repo {
+    cursor: url('assets/pointer.png') 0 0, pointer;
 }
 
 body {
@@ -276,11 +282,11 @@ footer {
 .mobile-screenshot {
     width: 200px;
     position: relative;
-    border-radius: 8px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
-    height: 350px; /* Added fixed height */
+    height: 350px;
 }
 
 .mobile-screenshot img {
@@ -306,6 +312,11 @@ footer {
     transition: transform 0.3s;
 }
 
+.mobile-info h4 {
+    color: #ff8585;
+    margin-bottom: 0.5rem;
+}
+
 .mobile-screenshot:hover .mobile-info {
     transform: translateY(0);
 }
@@ -321,16 +332,42 @@ footer {
 }
 
 .repo {
-    background-color: #1e1e1e;
+    background-color: #151515;
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 0;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-    width: 350px; /* Increased width */
+    transition: all 0.3s, border-color 0s;  /* Border color changes 2x faster */
+    width: 350px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    border: 2px solid #ffffff;
+    border-bottom-width: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.repo-link {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: #ff8585;
+    color: #000000;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.repo:hover .repo-link {
+    bottom: 0;
+}
+
+.repo:hover {
+    transform: translateY(-5px);
+    border-color: #ff8585;
 }
 
 .repo p {
@@ -340,9 +377,6 @@ footer {
     line-height: 1.4; /* Adjust line height for better readability */
 }
 
-.repo:hover {
-    transform: translateY(-5px);
-}
 
 .repo h3 {
     font-size: 1.5rem;
@@ -359,7 +393,7 @@ footer {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     background-color: #ff8585;
-    color: #ffffff;
+    color: #000000;
     border-radius: 0;
     transition: background-color 0.3s;
 }
@@ -369,7 +403,7 @@ footer {
     margin-bottom: 1.5rem;
     padding: 0.8rem 1.5rem;
     background-color: #ff8585;
-    color: #ffffff;
+    color: #000000;
     border-radius: 0;
     font-size: 1.2rem;
     transition: background-color 0.3s;
@@ -379,13 +413,13 @@ footer {
 .repo-link:hover {
     background-color: #ffa3a3;
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 .cv-download:hover {
     background-color: #ffa3a3;
     text-decoration: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 /* Footer styles */
