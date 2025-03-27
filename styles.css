@@ -178,12 +178,6 @@ footer {
     padding-top: 1rem;  /* Ensure consistent padding */
 }
 
-.game-description {
-}
-
-.game-description p {
-}
-
 .screenshot-carousel {
     width: 100%;
     overflow: hidden;
@@ -228,52 +222,27 @@ footer {
     top: 0;
     left: 0;
     color: #ffffff;
-    padding: 1.6rem;
+    padding: 3.6rem;
     z-index: 20;
-    display: none;
-    line-height: 2;
+    opacity: 0;  /* Start invisible */
+    display: block;  /* Always display but invisible */
+    line-height: 1;
     background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%);
     width: 45%;
     height: 100%;
-    padding-top: 4rem;
-    white-space: pre-line;  /* This will preserve line breaks as in HTML */
-}
-
-.game-description p {
-    margin-bottom: 0.3rem;
-    font-size: 1.1rem;
-    padding-left: 2rem;
-    max-width: 400px;
-    display: inline;  /* Make paragraphs flow inline */
-}
-
-/* Remove all duplicate .game-description declarations in the file */
-.download-button {
-    display: inline-block;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #bb86fc;
-    color: #ffffff;
-    border-radius: 0;
-    transition: background-color 0.3s;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.download-button:hover {
-    background-color: #d7b8ff;
-    color: #ffffff;
-    text-decoration: none;
+    padding-top: 5rem;
+    white-space: pre-line;
+    transition: opacity 0.3s ease;  /* Smooth fade in/out */
+    pointer-events: none;  /* Prevent description from blocking hover */
 }
 
 .screenshot-carousel:hover .game-description {
-    display: block;
+    opacity: 1;
 }
 
 .carousel-wrapper {
     display: inline-flex;
-    transition: transform 0.03s linear;
+    transition: transform 0.3s ease-out;  /* Smoother carousel movement */
     will-change: transform;
 }
 
@@ -286,10 +255,6 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s;
     flex-shrink: 0;
-}
-
-.screenshot:hover {
-    transform: scale(1.05);
 }
 
 /* Mobile gallery styles */
