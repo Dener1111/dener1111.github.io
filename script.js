@@ -48,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set initial scroll position
         let scrolling = false;
         let scrollPosition = 0;
-        const scrollSpeed = 1;
-        const scrollInterval = 30; // milliseconds
+        // Set different speeds based on containerId
+        const scrollSpeed = containerId === 'spacewhip' ? 1.2 : 0.8;
+        const scrollInterval = 20;  // Keep consistent interval
         let scrollTimer;
         
         // Calculate the width of a single set of screenshots
