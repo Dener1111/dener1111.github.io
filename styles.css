@@ -8,6 +8,12 @@
     cursor: url('assets/pointer.png') 0 0, auto;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 body {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -101,6 +107,7 @@ footer {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: #ff8585;
+    white-space: nowrap;
 }
 
 .header-text p {
@@ -277,12 +284,24 @@ footer {
 
 .mobile-screenshots {
     display: flex;
-    flex-wrap: wrap;
     gap: 1.5rem;
     justify-content: center;
+    overflow-x: auto;
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .mobile-screenshot {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
     width: 200px;
     position: relative;
     border-radius: 0;
@@ -330,28 +349,36 @@ footer {
 
 /* Unity repos styles */
 .repos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 1.5rem;
-    justify-items: center; /* Center align the repos */
-    max-width: 1200px; /* Limit maximum width */
-    margin: 0 auto; /* Center the container */
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;  /* Prevent wrapping */
 }
 
 .repo {
+    width: 33.33%; 
+    min-width: 300px; 
+    min-height: 150px;
+    width: 380px;
+    padding: 2rem;
     background-color: #151515;
-    padding: 1.5rem;
     border-radius: 0;
     box-shadow: -8px 8px 0px #000000;
     transition: all 0.3s;
-    width: 390px;
-    min-height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
+    justify-content: center;
+}
+
+.repo:hover {
+    transform: translateY(-5px);
+    box-shadow: -8px 8px 0px #ff8585;
 }
 
 .repo-link {
@@ -377,11 +404,6 @@ footer {
     color: #ffffff;
 }
 
-.repo:hover {
-    transform: translateY(-5px);
-    box-shadow: -8px 8px 0px #ff8585;
-}
-
 .repo p {
     color: #b0b0b0;
     margin-bottom: 0.5rem;
@@ -391,19 +413,15 @@ footer {
 
 
 .repo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
     color: #ff8585;
-}
-
-.repo p {
-    color: #b0b0b0;
+    white-space: nowrap;  /* Keep title on one line */
 }
 
 
 .cv-download {
     display: inline-block;
-    margin-bottom: 1.5rem;
     padding: 0.8rem 1.5rem;
     background-color: #ff8585;
     color: #000000;
@@ -411,6 +429,8 @@ footer {
     font-size: 1.2rem;
     transition: background-color 0.3s;
     font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .cv-download:hover {
@@ -427,11 +447,6 @@ footer {
     text-align: center;
 }
 
-.cv-download:hover {
-    background-color: #ffa3a3;
-    text-decoration: none;
-}
-
 .social-links {
     margin-top: 1rem;
 }
@@ -442,31 +457,10 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .avatar-container {
-        margin-right: 0;
-        margin-bottom: 1.5rem;
-    }
-    
-    .project {
-        flex-direction: column;
-    }
-    
-    .repos-container {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* Custom scrollbar for dark theme */
 ::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
+    height: 0px;  /* Hide horizontal scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -480,6 +474,10 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #ffa3a3;
+}
+
+.mobile-screenshots::-webkit-scrollbar {
+    display: none;  /* Hide scrollbar in Chrome/Safari/Opera */
 }
 
 .more-projects {
@@ -515,4 +513,84 @@ footer {
     color: rgba(176, 176, 176, 0.6);
     font-size: 0.9em;
     font-style: italic;
+}
+
+@media (max-width: 768px) {
+    
+    .project {
+        flex-direction: column;
+    }
+    
+    body {
+        background-size: 200%;  /* Larger background size for mobile */
+    }
+
+    .main-header {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1rem;  /* Reduced top padding */
+    }
+    
+    .avatar-container {
+        margin-right: 0;
+        margin-bottom: 1rem;  /* Reduced margin */
+    }
+
+    .header-text h1 {
+        font-size: 2rem;  /* Slightly smaller on mobile */
+    }
+
+    .header-text p {
+        font-size: 1rem;  /* Slightly smaller on mobile */
+        line-height: 1.4;  /* Tighter line height */
+    }
+
+    .game-title {
+        font-size: 2.5rem;
+        padding-left: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .game-description {
+        width: 100%;
+        padding: 1rem;
+        padding-top: 3.5rem;
+        font-size: 0.9rem;
+        line-height: 1.2;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.2) 100%);
+    }
+
+    .project-section h2 {
+        font-size: 2.2rem;
+        white-space: nowrap;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-gallery h3 {
+        font-size: 2.2rem;
+        white-space: nowrap;
+    }
+
+    .mobile-screenshots {
+        justify-content: flex-start;
+        max-width: none;
+        padding: 0.5rem;
+        margin: 0 -0.5rem;
+    }
+
+    .repos-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    
+    .repo {
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .repo h3 {
+        font-size: 1.5rem;
+    }
 }
