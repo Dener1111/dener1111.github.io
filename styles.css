@@ -217,6 +217,7 @@ footer {
     z-index: 10;
     cursor: pointer;
     height: 300px;
+    border-radius: 8px;
 }
 
 .carousel-wrapper {
