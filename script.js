@@ -126,7 +126,72 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelector('.avatar').addEventListener('click', function() {
     this.classList.toggle('mirrored');
 });
-document.addEventListener('mousemove', (e) => {
-    document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
-    document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+document.addEventListener('DOMContentLoaded', function() {
+    // Add fluid background effect
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    document.body.appendChild(canvas);
+    canvas.style.cssText = 'position:fixed;top:0;left:0;z-index:-1;opacity:0.4;pointer-events:none;';
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    let time = 0;
+    const points = Array(20).fill().map(() => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: Math.random() * 2 - 1,
+        vy: Math.random() * 2 - 1,
+        // More varied colors in pink/red spectrum
+        color: `rgba(${220 + Math.random() * 35},${100 + Math.random() * 60},${120 + Math.random() * 50},${0.05 + Math.random() * 0.06})`
+    }));
+
+    function animate() {
+        time += 0.01;
+        ctx.fillStyle = 'rgba(0,0,0,0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        points.forEach(point => {
+            point.x += point.vx;
+            point.y += point.vy;
+            
+            if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
+            if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
+
+            const gradient = ctx.createRadialGradient(
+                point.x, point.y, 0,
+                point.x, point.y, 180  // Slightly larger radius
+            );
+            gradient.addColorStop(0, point.color);
+            gradient.addColorStop(1, 'transparent');
+            
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, 150, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Update mouse tracking for fluid effect
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = (e.clientX / window.innerWidth) - 0.5;
+        const mouseY = (e.clientY / window.innerHeight) - 0.5;
+        
+        points.forEach((point, i) => {
+            if (i === 0) {
+                point.x = e.clientX;
+                point.y = e.clientY;
+            }
+        });
+
+        document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
+        document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+    });
 });
