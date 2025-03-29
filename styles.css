@@ -7,8 +7,7 @@
     cursor: url('assets/pointer.png') 0 0, auto;
 }
 
-html,
-body {
+html {
     overflow-x: hidden;
     width: 100%;
     position: relative;
@@ -26,6 +25,7 @@ body {
     position: relative;
     overflow-x: hidden;
     min-height: 100vh;
+    width: 100%;
 }
 
 body::after {
@@ -37,7 +37,7 @@ body::after {
     height: 100%;
     background: radial-gradient(circle 200px at var(--cursor-x, 50%) var(--cursor-y, 50%),
             transparent,
-            rgba(0, 0, 0, 0.85));
+            rgba(0, 0, 0, 0.75));
     pointer-events: none;
     z-index: 1;
 }
