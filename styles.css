@@ -154,6 +154,8 @@ footer {
 
 .project-container {
     margin-bottom: -5rem;
+    position: relative;
+    overflow: visible;
 }
 
 .project {
@@ -601,5 +603,44 @@ footer {
 
     .repo h3 {
         font-size: 1.5rem;
+    }
+
+    .video-overlay {
+        display: none;
+        z-index: -100;
+    }
+}
+
+@media (min-width: 769px) {
+    .project {
+        position: relative;
+        overflow: visible;
+    }
+
+    .video-overlay {
+        position: absolute;
+        top: .6rem;
+        right: .6rem;
+        width: 500px;
+        height: 281px; 
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 20;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .screenshot-carousel:hover + .video-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .video-overlay iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
     }
 }

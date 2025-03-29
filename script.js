@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize screenshot carousels
     createScreenshotCarousel('spacewhip', spaceWhipScreenshots);
     createScreenshotCarousel('honor-plus-plus', honorPlusPlusScreenshots);
-    
+
     // Add smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -193,5 +193,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.documentElement.style.setProperty('--cursor-x', e.clientX + 'px');
         document.documentElement.style.setProperty('--cursor-y', e.clientY + 'px');
+    });
+
+    // Add YouTube video functionality
+    document.querySelectorAll('.screenshot-carousel').forEach(carousel => {
+        const videoOverlay = carousel.nextElementSibling;
+        if (videoOverlay && videoOverlay.classList.contains('video-overlay')) {
+            const videoId = videoOverlay.dataset.videoId;
+            if (videoId) {
+                // Create YouTube player
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}`;
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+                iframe.allowFullscreen = true;
+                videoOverlay.appendChild(iframe);
+
+                // Control video on hover
+                let player;
+                carousel.addEventListener('mouseenter', () => {
+                    if (player) {
+                        player.playVideo();
+                    } else {
+                        player = new YT.Player(iframe, {
+                            events: {
+                                'onReady': (event) => event.target.playVideo()
+                            }
+                        });
+                    }
+                });
+
+                carousel.addEventListener('mouseleave', () => {
+                    if (player) {
+                        player.pauseVideo();
+                    }
+                });
+            }
+        }
     });
 });
