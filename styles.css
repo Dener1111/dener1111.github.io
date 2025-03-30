@@ -7,6 +7,25 @@
     cursor: url('assets/pointer.png') 0 0, auto;
 }
 
+a, 
+.cv-download,
+.screenshot-carousel,
+
+.avatar,
+.screenshot,
+.game-title,
+.more-projects,
+.mobile-info,
+.mobile-info p,
+.mobile-info h4,
+.mobile-screenshot,
+.mobile-screenshot img,
+.repo,
+.repo h3,
+.repo p{
+    cursor: url('assets/hand.png') 0 0, pointer !important;
+}
+
 html {
     overflow-x: hidden;
     width: 100%;
@@ -111,7 +130,6 @@ footer {
     object-fit: cover;
     border: 3px solid #ff8585;
     transition: transform 0.3s ease;
-    cursor: pointer;
 }
 
 .avatar.mirrored {
@@ -350,6 +368,7 @@ footer {
     padding: 0.8rem;
     transform: translateY(100%);
     transition: transform 0.3s;
+
 }
 
 .mobile-info h4 {
