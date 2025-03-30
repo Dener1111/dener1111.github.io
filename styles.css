@@ -9,8 +9,6 @@
 
 a, 
 .cv-download,
-.screenshot-carousel,
-
 .avatar,
 .screenshot,
 .game-title,
@@ -83,9 +81,10 @@ a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    padding-top: 1rem;
     position: relative;
     z-index: 2;
-    margin-bottom: -2rem;
+    margin-bottom: -3rem;
 }
 
 .header-links {
@@ -95,6 +94,7 @@ a:hover {
     gap: 0.5rem;
     position: relative;
     z-index: 10;
+    margin-top: -1rem;
 }
 
 .social-links {
@@ -319,7 +319,7 @@ footer {
     gap: 1.5rem;
     justify-content: center;
     overflow-x: auto;
-    padding: 1rem;
+    padding-bottom: 1rem;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     scroll-padding: 1rem;
