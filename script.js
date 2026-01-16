@@ -16,6 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
         'assets/HPP5.png'
     ];
     
+    const taxiVRScreenshots = [
+        'assets/vr/TAXI1.png',
+        'assets/vr/TAXI2.png',
+        'assets/vr/TAXI3.png',
+        'assets/vr/TAXI4.png',
+        'assets/vr/TAXI5.png'
+    ];
+    
+    const gnomesVRScreenshots = [
+        'assets/vr/GNOME1.png',
+        'assets/vr/GNOME2.png',
+        'assets/vr/GNOME3.png',
+        'assets/vr/GNOME4.png',
+        'assets/vr/GNOME5.png'
+    ];
+    
     // Function to create screenshot carousel
     function createScreenshotCarousel(containerId, screenshots) {
         const container = document.querySelector(`#${containerId} .screenshot-carousel`);
@@ -101,9 +117,84 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Function to create VR background carousel
+    function createVRBackgroundCarousel(containerId, screenshots) {
+        const container = document.querySelector(`#${containerId} .vr-carousel-bg`);
+        
+        if (!container) return;
+        
+        const wrapper = document.createElement('div');
+        wrapper.className = 'vr-carousel-wrapper';
+        container.appendChild(wrapper);
+        
+        screenshots.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${containerId} Screenshot`;
+            img.className = 'vr-bg-screenshot';
+            wrapper.appendChild(img);
+        });
+        
+        screenshots.forEach(src => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${containerId} Screenshot (clone)`;
+            img.className = 'vr-bg-screenshot';
+            wrapper.appendChild(img);
+        });
+        
+        let scrollPosition = 0;
+        const scrollSpeed = 0.5;
+        let scrollTimer;
+        let singleSetWidth = 0;
+        
+        const updateSetWidth = () => {
+            const firstImg = wrapper.querySelector('.vr-bg-screenshot');
+            if (firstImg) {
+                const imgWidth = firstImg.offsetWidth;
+                const imgMargin = parseInt(window.getComputedStyle(firstImg).marginRight);
+                singleSetWidth = screenshots.length * (imgWidth + imgMargin);
+            }
+        };
+        
+        window.addEventListener('load', updateSetWidth);
+        setTimeout(updateSetWidth, 500);
+        
+        function autoScroll() {
+            if (!singleSetWidth) updateSetWidth();
+            if (!singleSetWidth) return;
+            
+            scrollPosition += scrollSpeed;
+            
+            if (scrollPosition >= singleSetWidth - 1) {
+                scrollPosition = 0;
+                wrapper.style.transition = 'none';
+                wrapper.style.transform = `translateX(-${scrollPosition}px)`;
+                setTimeout(() => {
+                    wrapper.style.transition = 'transform 0.1s linear';
+                }, 50);
+            } else {
+                wrapper.style.transform = `translateX(-${scrollPosition}px)`;
+            }
+        }
+        
+        scrollTimer = setInterval(autoScroll, 20);
+        
+        container.addEventListener('mouseenter', () => {
+            clearInterval(scrollTimer);
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            clearInterval(scrollTimer);
+            scrollTimer = setInterval(autoScroll, 20);
+        });
+    }
+    
     // Initialize screenshot carousels
     createScreenshotCarousel('spacewhip', spaceWhipScreenshots);
     createScreenshotCarousel('honor-plus-plus', honorPlusPlusScreenshots);
+    createVRBackgroundCarousel('vr-game1', taxiVRScreenshots);
+    createVRBackgroundCarousel('vr-game2', gnomesVRScreenshots);
 
     // Add smooth scrolling for navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
