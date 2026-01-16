@@ -20,7 +20,11 @@ a,
 .mobile-screenshot img,
 .repo,
 .repo h3,
-.repo p{
+.repo p,
+.tool-content,
+.tool-title,
+.tool-description,
+.tool-description p{
     cursor: url('assets/hand.png') 0 0, pointer !important;
 }
 
@@ -400,6 +404,7 @@ footer {
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
 }
 
 .tool-video iframe {
@@ -407,6 +412,7 @@ footer {
     height: 100%;
     border: none;
     display: block;
+    pointer-events: none;
 }
 
 .mobile-gallery {
