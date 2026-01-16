@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to create VR background carousel
     function createVRBackgroundCarousel(containerId, screenshots) {
         const container = document.querySelector(`#${containerId} .vr-carousel-bg`);
+        const cardElement = document.querySelector(`#${containerId} .vr-content`);
         
         if (!container) return;
         
@@ -180,14 +181,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         scrollTimer = setInterval(autoScroll, 20);
         
-        container.addEventListener('mouseenter', () => {
-            clearInterval(scrollTimer);
-        });
-        
-        container.addEventListener('mouseleave', () => {
-            clearInterval(scrollTimer);
-            scrollTimer = setInterval(autoScroll, 20);
-        });
+        if (cardElement) {
+            cardElement.addEventListener('mouseenter', () => {
+                clearInterval(scrollTimer);
+            });
+            
+            cardElement.addEventListener('mouseleave', () => {
+                clearInterval(scrollTimer);
+                scrollTimer = setInterval(autoScroll, 20);
+            });
+        }
     }
     
     // Initialize screenshot carousels
