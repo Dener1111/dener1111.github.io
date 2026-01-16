@@ -24,7 +24,11 @@ a,
 .tool-content,
 .tool-title,
 .tool-description,
-.tool-description p{
+.tool-description p,
+.vr-content,
+.vr-title,
+.vr-description,
+.vr-description p{
     cursor: url('assets/hand.png') 0 0, pointer !important;
 }
 
@@ -415,6 +419,80 @@ footer {
     pointer-events: none;
 }
 
+/* VR Games Section */
+#vr-games .project-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+#vr-games .vr-card {
+    flex: 1;
+    min-width: calc(50% - 1rem);
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.vr-content {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: #181818;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.7rem;
+}
+
+.vr-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 2rem 0 0 3.6rem;
+    z-index: 10;
+}
+
+.vr-description {
+    position: absolute;
+    top: 5rem;
+    left: 3.6rem;
+    color: #e0e0e0;
+    z-index: 10;
+    line-height: 1.4;
+    font-size: 0.95rem;
+}
+
+.vr-description p {
+    margin: 0;
+    padding: 0;
+}
+
+.vr-video {
+    width: 500px;
+    height: 281px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.vr-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    pointer-events: none;
+}
+
 .mobile-gallery {
     margin-top: 3rem;
 }
@@ -733,6 +811,43 @@ footer {
     }
 
     .tool-video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    /* VR Games responsive styles */
+    #vr-games .project-container {
+        flex-direction: column;
+    }
+
+    #vr-games .vr-card {
+        min-width: 100%;
+    }
+
+    .vr-content {
+        flex-direction: column;
+        padding: 1.5rem;
+        height: auto;
+        justify-content: center;
+    }
+
+    .vr-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        position: static;
+        padding: 0;
+    }
+
+    .vr-description {
+        position: static;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .vr-video {
         width: 100%;
         height: auto;
         aspect-ratio: 16/9;
