@@ -28,7 +28,9 @@ a,
 .vr-content,
 .vr-title,
 .vr-description,
-.vr-description p{
+.vr-description p,
+.vr-carousel-bg,
+.vr-bg-screenshot{
     cursor: url('assets/hand.png') 0 0, pointer !important;
 }
 
